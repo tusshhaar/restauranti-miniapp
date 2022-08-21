@@ -1,0 +1,45 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "products": [
+    {
+      "image": "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/d7dzylheilt7ro2u7uad",
+      "title": "Mughlai, North Indian",
+      "desc": "A deliciously indulgent rolls stuffed with flavorsome paneer filling, served with green chutney. (Serves 1) item can't be provide extra sauce and dips",
+      "price": "350",
+      "rating": "4.3",
+      "id": 1
+    },
+    {
+      "image": "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/kjhn8mqvcp2slembjmp0",
+      "title": "Chicken Biryani",
+      "desc": "Chicken biryani is a savory chicken and rice dish that includes layers of chicken, rice, and aromatics that are steamed together. The bottom layer of rice absorbs all the chicken juices as it cooks, giving it a tender texture and rich flavor, while the top layer of rice turns out white and fluffy.",
+      "price": "159",
+      "rating": "3.5",
+      "id": 2
+    },
+    {
+      "image": "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/xcd4oi7iqnitnb5oycjg",
+      "title": "Mughlai, Indian",
+      "desc": "Chicken biryani is a savory chicken and rice dish that includes layers of chicken, rice, and aromatics that are steamed together. The bottom layer of rice absorbs all the chicken juices as it cooks, giving it a tender texture and rich flavor, while the top layer of rice turns out white and fluffy.",
+      "price": "159",
+      "rating": "3.1",
+      "id": 3
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

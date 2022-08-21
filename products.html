@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+
+    <style>
+        #container {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 20px;
+        }
+
+        #container>div {
+            margin-top: 20px;
+        }
+
+        img {
+            width: 150px;
+        }
+
+        p {
+            width: 60%;
+        }
+    </style>
+</head>
+
+<body>
+    <select id="selection">
+        <option value="Sort">Sort</option>
+        <option value="High">High To Low</option>
+        <option value="Low">Low To High</option>
+    </select>
+    <div id="container"></div>
+</body>
+
+</html>
+
+<script>
+    products()
+
+    async function products() {
+
+        try {
+            let res = await fetch("http://localhost:3000/products", {
+
+                method: 'GET'
+            })
+
+            let data = await res.json();
+
+            showProducts(data);
+            sorted(data);
+
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
+    function sorted(data) {
+        document.getElementById('selection').addEventListener('change', function () {
+
+            document.getElementById('container').innerHTML = "";
+
+            let sortName = document.getElementById("selection").value;
+
+            if (sortName == 'Sort') {
+                return showProducts(data)
+            }
+
+            if (sortName == 'High') {
+
+                data.sort(function (a, b) {
+                    let x = a.price;
+                    let y = b.price;
+                    return y - x;
+                })
+            }
+            if (sortName == 'Low') {
+
+                data.sort(function (a, b) {
+                    let x = a.price;
+                    let y = b.price;
+                    return x - y;
+                })
+            }
+            showProducts(data)
+        })
+    }
+
+    function showProducts(data) {
+
+        data.forEach(function (ele) {
+
+            let div = document.createElement('div');
+
+            let image = document.createElement('img');
+            image.src = ele.image;
+
+            let title = document.createElement('p');
+            title.innerText = ele.title
+
+            let price = document.createElement('p');
+            price.innerText = 'Rs. ' + ele.price
+
+            let desc = document.createElement('p');
+            desc.innerText = ele.desc
+
+            div.append(image, title, price, desc);
+
+            document.getElementById("container").append(div);
+        })
+    }
+</script>
